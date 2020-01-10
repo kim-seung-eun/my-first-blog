@@ -2,13 +2,17 @@
 
 {% block content %}
     <div class="post">
+        
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>수정</a>
+        <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span>삭제</a>
+        <p><b>제목</b> : {{ post.title }}</p>
+        <p><b>내용</b> : {{ post.text|linebreaksbr }}</p>
         {% if post.published_date %}
             <div class="date">
-                {{ post.published_date }}
+               <b>신청일자</b> : {{ post.published_date }}
             </div>
+        {% else %}
+        	<a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">최종신청하기</a>
         {% endif %}
-        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endblock %}
