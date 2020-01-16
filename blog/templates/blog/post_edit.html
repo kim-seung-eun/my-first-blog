@@ -4,12 +4,12 @@
     <p class="lead">신청서 내용 등록 및 수정 </p>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+        <!--div class="input-group date" id="datetimepicker1" data-target-input="nearest">
 		  {{ form.published_date }}
 		  <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
 		    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
 		  </div>
-		</div>
+		</div-->
 
         <input type="submit" class="btn btn-info" value="저장">
     </form>
