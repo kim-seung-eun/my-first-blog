@@ -1,18 +1,43 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
-        
-        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>수정</a>
-        <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span>삭제</a>
-        <p><b>제목</b> : {{ post.title }}</p>
-        <p><b>내용</b> : {{ post.text|linebreaksbr }}</p>
-        {% if post.published_date %}
-            <div class="date">
-               <b>신청일자</b> : {{ post.published_date }}
-            </div>
-        {% else %}
-        	<a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">최종신청하기</a>
-        {% endif %}
-    </div>
+    <div class="form-horizontal">
+		<div class="form-group">
+        	 <label for="disabledInput" class="col-sm-2 control-label">이름</label>
+        	  <div class="col-sm-10">
+		        <input class="form-control" id="disabledInput" type="text" placeholder="{{ post.name }}" disabled>
+		      </div>
+        </div>
+        <div class="form-group">
+        	 <label for="disabledInput" class="col-sm-2 control-label">성별</label>
+        	  <div class="col-sm-10">
+		        <input class="form-control" id="disabledInput" type="text" placeholder="{{ post.gender }}" disabled>
+		      </div>
+        </div>
+		<div class="form-group">
+        	 <label for="disabledInput" class="col-sm-2 control-label">제목</label>
+        	  <div class="col-sm-10">
+		        <input class="form-control" id="disabledInput" type="text" placeholder="{{ post.title }}" disabled>
+		      </div>
+        </div>
+		<div class="form-group">
+        	 <label for="disabledInput" class="col-sm-2 control-label">내용</label>
+        	  <div class="col-sm-10">
+		        <input class="form-control" id="disabledInput" type="text" placeholder="{{ post.text|linebreaksbr }}" disabled>
+		      </div>
+        </div>
+        <div class="form-group">
+        	 <label for="disabledInput" class="col-sm-2 control-label">신청일자</label>
+        	  <div class="col-sm-10">
+		        <input class="form-control" id="disabledInput" type="text" placeholder="{{ post.published_date }}" disabled>
+		      </div>
+        </div>
+         <div class="form-group">
+    		<div class="col-sm-offset-2 col-sm-10">
+    		<a class="btn btn-info  btn-sx" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>수정</a>
+	        <a class="btn btn-info  btn-sx" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span>삭제</a>
+	    	</div>
+		</div>       
+    </div>     
+
 {% endblock %}

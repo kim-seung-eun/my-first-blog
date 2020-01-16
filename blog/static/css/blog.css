@@ -6,3 +6,7 @@ body {
     padding-left:15px;    
     font-family: '굴림';    
 }
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}

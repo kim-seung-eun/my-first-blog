@@ -1,9 +1,45 @@
 from django import forms
 
-from .models import Post
+from .models import Post, Comment
+from .widgets import DatePickerWidget
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'text',)
+        fields = ('title', 'name','gender','text','published_date')
+        widgets = {
+        	'title': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'name': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'gender': forms.Select(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'text': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+			'published_date': forms.DateTimeInput(
+                attrs={
+                    'class': 'form-control datetimepicker-input',
+                    'data-target': '#datetimepicker1'
+                }
+            ),
+        }
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)
