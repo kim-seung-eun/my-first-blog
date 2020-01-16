@@ -2,6 +2,9 @@ from django import forms
 
 from .models import Post, Comment
 from .widgets import DatePickerWidget
+from functools import partial
+
+DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 
 class PostForm(forms.ModelForm):
 
@@ -28,15 +31,10 @@ class PostForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                 }
-            ),
-			'published_date': forms.DateTimeInput(
-                attrs={
-                    'class': 'form-control datetimepicker-input',
-                    'data-target': '#datetimepicker1'
-                }
-            ),
-        }
-
+            ), 
+            'published_date': forms.DateTimeInput(attrs={'class':'datetime-input'}),
+         
+        }        
 
 class CommentForm(forms.ModelForm):
 
