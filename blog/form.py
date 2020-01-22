@@ -10,7 +10,8 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'name','gender','text','published_date')
+        fields = ('title', 'name','gender','text','phone_no',
+        			'published_date')
         widgets = {
         	'title': forms.TextInput(
                 attrs={
@@ -32,6 +33,11 @@ class PostForm(forms.ModelForm):
                     'class': 'form-control',
                 }
             ), 
+            'phone_no': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
             'published_date': forms.DateTimeInput(attrs={'class':'datetime-input'}),
          
         }        

@@ -11,8 +11,7 @@
             				<th>제목</th>
             				<th>성별</th>
             				<th>내용</th>
-            				<th>신청일자</th>            				
-            				<th>등록일자</th>
+            				<th>신청일자</th>            				            				
             		    </tr>
             		</thead>
             		<tbody>
@@ -22,8 +21,7 @@
             				<td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
             				<td>{% if post.gender == 'F' %} 여성 {% else %} 남성 {% endif %}</td>
             				<td>{{ post.text|linebreaksbr }}</td> 
-            				<td> {{ post.published_date }}</td>
-            				<td> {{ post.created_date }}</td>  
+            				<td> {{ post.published_date }}</td>            				
             			</tr>
             			{% endfor %}
             		</tbody>               

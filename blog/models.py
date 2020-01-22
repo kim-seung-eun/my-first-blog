@@ -12,6 +12,7 @@ class Post(models.Model):
 	gender = models.CharField(max_length=1, choices=GENDER_FIELD)
 	title = models.CharField(max_length=200)
 	text = models.TextField()
+	phone_no = models.CharField(max_length=11)
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 
